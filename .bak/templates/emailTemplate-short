@@ -1,6 +1,0 @@
-to=(steven.barber@eagles.usm.edu)
-s="this is a html test"
-# m="this is a message\nfrom the message arg"
-# m=$(bash templates/msg)
-message="testing final"
-attach=~/.Email/templates/t.html

@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
-# ------------------------------------------------------------------
-# Author:       Steven barber
-# Script:       sendEmail.sh
-# Discription:  send text or email via mutt protocol via CLI
 #
-# ------------------------------------------------------------------
+# Title              :email.sh
+# Description        :provides an easy to use mutt-wraper
+# Author             :Steven Barber
+# Email              :steven.barber@eagles.usm.edu
+# Date               :01-23-2016
+# Version            :0.1
+# Usage              :bash email.sh
+#                        -- or --
+#                     email -h
+# Notes              :Have Fun :-)
+# bash_version       :4.3.11(1)-release
+#========================================================================
 
 # default config file
 # default_conf_dir=/usr/share/Email/conf
