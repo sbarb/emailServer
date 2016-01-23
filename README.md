@@ -10,7 +10,7 @@
 
         modifies
             /usr/share/ -- for the app data
-                            symlinked to ~/.emaiail
+                            symlinked to ~/.email
             /usr/bin/   -- for the run script
                             which email
                                 returns /user/bin/email
