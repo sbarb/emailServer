@@ -1,3 +1,17 @@
+<!-- 
+# Title              :setupMailServer.sh
+# Description        :install and set up a basic email server
+#                       and provide an easy to use mutt-wraper
+# Author             :Steven Barber
+# Email              :steven.barber@eagles.usm.edu
+# Date               :01-23-2016
+# Version            :0.1
+# Usage              :bash setupMailServer.sh
+# Notes              :Only run 1 time without modifying
+# bash_version       :4.3.11(1)-release
+#========================================================================
+-->
+
 # Email
 
 # There are two branches
