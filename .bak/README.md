@@ -6,7 +6,11 @@
 
     clone repo
 
-    bash init/setupMailServer.sh
+    bash setupMailServer.sh
+
+    source ~/.bashrc
+        --  this gives the email alias
+            email="bash ~/.Email/email.sh"
 
     email -h
 
@@ -17,12 +21,14 @@
 
 # Run
 
-After setup is complete you should have a new folder ~/.email
+After setup is complete you should have a new folder ~/.Email
 
 Along with a new alias email
 
 to run it either
 
+        bash ~/.Email/email.sh -h
+            -- or most likely --
         email -h
 
         email -t email1@gmail.com -m "this \nis \nthe \nmessage" -a file1 -a file2
@@ -33,7 +39,7 @@ to run it either
 
         -- to use a config file --
 
-        email -C ~/.email/templates/emailTemplate
+        email -C templates/emailTemplate
 
 # CLI Options:
 
@@ -75,6 +81,9 @@ to run it either
 
 
 ## Config file options:
+
+**Config files WILL bash scripts!!**
+
 #### Address
 
 these options are availiable for single email or array of emails

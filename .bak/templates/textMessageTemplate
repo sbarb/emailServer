@@ -1,0 +1,6 @@
+phone=6016208784@mms.att.net
+# either phone or number and carrier must be given
+# number=6016208784
+# carrier=mms.att.net
+subj="this is a html test"
+msg="this is a message\nfrom the message arg"
