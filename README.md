@@ -1,5 +1,11 @@
 # Email
 
+# There are two branches
+    install-package
+
+    bin-package
+# Choose what is best for you
+
 # Currently this only supports gmail
 
 # Setup
