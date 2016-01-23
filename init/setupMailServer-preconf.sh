@@ -132,12 +132,18 @@ makeAvailable() {
     sudo ln -s $APP_DIR/conf ~/.email/config
 
     sudo ln -s $APP_DIR/templates ~/.email/templates
+
+    sudo chown -R $USER:$USER ~/.email
+
+    sudo chown -R $USER:$USER ~/.email/config
+
+    sudo chown -R $USER:$USER ~/.email/templates
 }
 
 main() {
     setDefaults
 
-    setupMailServer
+    # setupMailServer
 
     makeAvailable
 
