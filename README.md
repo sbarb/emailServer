@@ -3,7 +3,24 @@
 # There are two branches
     install-package
 
+        installs email as if it were a normal linux package
+
+        modifies
+            /usr/share/ -- for the app data
+                            symlinked to ~/.emaiail
+            /usr/bin/   -- for the run script
+                            which email
+                                returns /user/bin/email
+
     bin-package
+
+        all files are modified and saved in ~/.Email
+
+        if you run
+            email
+        it will be an alias to the script
+        * you must source ~/.bashrc
+
 # Choose what is best for you
 
 # Currently this only supports gmail
