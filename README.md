@@ -1,6 +1,9 @@
 # Email
 
 # There are two branches
+##### Choose what is best for you
+##### *master branch is currently up to date with install-package*
+
     install-package
 
         installs email as if it were a normal linux package
@@ -21,7 +24,6 @@
         it will be an alias to the script
         * you must source ~/.bashrc
 
-# Choose what is best for you
 
 # Currently this only supports gmail
 
