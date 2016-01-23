@@ -1,0 +1,6 @@
+emails=(steven.barber@eagles.usm.edu)
+subject="this is a html test"
+# either a message or a html_file
+# msg="this is a message\nfrom the message arg"
+html_file=~/Dropbox/scripts/Email/templates/t.html
+attach=(~/Dropbox/scripts/Email/templates/t.html ~/Dropbox/scripts/Email/templates/emailTemplate)
