@@ -143,7 +143,7 @@ makeAvailable() {
 main() {
     setDefaults
 
-    # setupMailServer
+    setupMailServer
 
     makeAvailable
 
