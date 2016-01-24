@@ -4,6 +4,8 @@
     /conf/default-mail.conf
     /conf/install.conf
 
+# Currently this only supports gmail
+
 # Install Options
     1)  install-package
 
@@ -32,15 +34,15 @@
             Same as option 2
             but without the ailias in ~/.bashrc
 
-# Currently this only supports gmail
-
-# Setup
+# Setup & Install
 
     clone repo
 
     bash init/install.sh
 
-try it out:
+select option 1, 2, or 3 from above.
+
+Then, try it out:
 
     wget https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png -O mint.png && email -a mint.png -t YOUR_EMAIL
 
@@ -53,10 +55,6 @@ try it out:
 
 After setup is complete, if you chose to install, you should have a new folder ~/.email
 
-
-    email -h
-        to get more information
-
     email -t email1@gmail.com -m "this \nis \nthe \nmessage" -a file1 -a file2
 
     -- to send a text --
@@ -68,6 +66,8 @@ After setup is complete, if you chose to install, you should have a new folder ~
     email -C ~/.email/templates/emailTemplate
 
 # CLI Options:
+
+`email -h` to get more information
 
     Availiable Options:
 
