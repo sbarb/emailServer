@@ -36,9 +36,9 @@
             Same as option 2
             but without the ailias in ~/.bashrc
             rather than
-            email
+                email
             it will be
-            bash Email/bin/email.sh
+                bash Email/bin/email.sh
 
 # Setup & Install
 
