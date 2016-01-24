@@ -9,4 +9,5 @@ if there is a
 it must have
 
 EMAIL_ADDRESS=email@gmail.com
+
 EMAIL_PASS=Pass4Email
