@@ -186,7 +186,7 @@ main() {
 
     defineSetup
 
-    installDependencies
+    # installDependencies
 
     configureMailServer
 

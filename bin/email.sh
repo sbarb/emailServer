@@ -13,39 +13,57 @@
 # bash_version       :4.3.11(1)-release
 #========================================================================
 
-# default config file
-# default_conf_dir=/usr/share/Email/conf
-default_conf_dir=~/.email/config
-default_conf_file=$default_conf_dir/default-mail.conf
+setDefaultConfig() {
+    if [[ ${0%/$(basename $BASH_SOURCE)} == *"email.sh"* ]]; then
+        ROOT_DIR=$PWD
+    else
+        ROOT_DIR=${0%/$(basename $BASH_SOURCE)}
+    fi
 
-# if default configuration file exist include it
-if [ -f $default_conf_file ]; then
-    . $default_conf_file
-    echo "default_conf_file location:" $default_conf_file
-else # Otherwise uncomment these options or copy them into a config file
-    echo "DEFAULT CONFIG FILE NOT FOUND!!!"
-    # Edit these variable to best suit your needs
-    #
-    # default_number=5555555555
-    # default_carrier=mms.att.net
-    # personal_email=email@domain.com
-    # work_email=email@work.com
-    #
-    #
-    # # Default values to be set when none are selected
-    # default_phone=$default_number@$default_carrier
-    # default_emails=($personal_email)
-    # default_subject="email from email machine"
-    # default_msg="Message not found\nPlease remember to send a message next time with the\n-m option"
-    # # if no attachment is given it defaults to an empty string
-    # default_attach=""
-    #
-    # html=false
-fi
+    ROOT_DIR=$(readlink -f $ROOT_DIR)
+    ROOT_DIR=${ROOT_DIR%"/bin"}
 
+    if [ -d ~/.email/config ]; then
+        default_conf_dir=~/.email/config
+    fi
+
+    if [[ $default_conf_file == "" ]] && [ -d $ROOT_DIR/conf ]; then
+        default_conf_dir=$ROOT_DIR/conf
+    fi
+
+    if [[ $default_conf_file == "" ]] && [ -d /usr/share/Email/conf ]; then
+        default_conf_dir=/usr/share/Email/conf
+    fi
+
+    default_conf_file=$default_conf_dir/default-mail.conf
+
+    # if default configuration file exist include it
+    if [ -f $default_conf_file ]; then
+        . $default_conf_file
+        echo "default_conf_file location:" $default_conf_file
+    else # Otherwise uncomment these options or copy them into a config file
+        echo "DEFAULT CONFIG FILE NOT FOUND!!!"
+        # Edit these variable to best suit your needs
+        #
+        # default_number=5555555555
+        # default_carrier=mms.att.net
+        # personal_email=email@domain.com
+        # work_email=email@work.com
+        #
+        #
+        # # Default values to be set when none are selected
+        # default_phone=$default_number@$default_carrier
+        # default_emails=($personal_email)
+        # default_subject="email from email machine"
+        # default_msg="Message not found\nPlease remember to send a message next time with the\n-m option"
+        # # if no attachment is given it defaults to an empty string
+        # default_attach=""
+        #
+        # html=false
+    fi
+}
 #
 # ------------------------------------------------------------------
-
 
 # show if inivalid option has been given when running script
 displayInvalidOption() {
@@ -92,9 +110,9 @@ cat <<EOF
     -help   Displays help page
 
 
-    Default configs are stored in ./mail.conf
+    Default configs are stored in $default_conf_file
 
-    If passing in a config file it will override the default mail.conf
+    If passing in a config file it will override the default $default_conf_file
 
 EOF
 }
@@ -162,6 +180,7 @@ while getopts ":TEBWAt:s:m:H:a:C:n:c:h" opt; do
         fi
         ;;
     h | help)
+        setDefaultConfig
         displayHelpInfo
         exit 1
         ;;
@@ -293,6 +312,8 @@ sendEmail() {
 }
 
 main() {
+    # default config file
+    setDefaultConfig
     # if no variables are given to email, subject, message, or attachment
     # set them to default values
     checkVars
