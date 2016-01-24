@@ -51,7 +51,9 @@ cat <<choices
         -   This option will set up everything to run
             bin/email.sh
             it will also create an alias to run as \$(email)
-    3)  Exit
+    3)  Run from the script file in the current location
+        -   Same as option 2 but does not set alias
+    4)  Exit
 
 choices
     read -n1 -p "Enter Selection: " SETUP_TYPE
@@ -65,6 +67,9 @@ choices
             useBinaries
             ;;
         3)
+            return 1
+            ;;
+        4)
             echo -e "\n\nGood-Bye.\n\n"
             ;;
         *)
@@ -186,7 +191,7 @@ main() {
 
     defineSetup
 
-    # installDependencies
+    installDependencies
 
     configureMailServer
 

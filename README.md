@@ -22,6 +22,10 @@
             it will be an alias to the script
             * you must source ~/.bashrc
 
+    3)  bin-package
+
+            Same as option 2
+            but without the ailias in ~/.bashrc
 
 # Currently this only supports gmail
 
@@ -31,7 +35,9 @@
 
     bash init/setupMailServer.sh
 
-    email -h
+try it out:
+
+    wget https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png -O mint.png && email -a mint.png -t YOUR_EMAIL
 
 **if you can't send email check your google account you may have to allow access**
 
@@ -40,13 +46,11 @@
 
 # Run
 
-After setup is complete you should have a new folder ~/.email
+After setup is complete, if you chose to install, you should have a new folder ~/.email
 
-Along with a new alias email
-
-to run it either
 
     email -h
+        to get more information
 
     email -t email1@gmail.com -m "this \nis \nthe \nmessage" -a file1 -a file2
 
@@ -122,11 +126,16 @@ these options are availiable for single email or array of emails
 
 The subject line is a string subject to send
 
+**Must be a single line**
+
     sbj
     subject
     sub
     subj
     s
+
+    sbj="this is a subject line"
+    s="or this one"
 
 #### Message    
 
@@ -137,6 +146,10 @@ The Message can either be the output of a bash file (or even a bash file itself,
     mess
     m
 
+    msg="this \nis \n the \nmessage \nwith \nnewlines"
+    message=$(cat text.txt)
+    m=$(ls)
+
 #### Attachmets
 
 Attachments work like emails
@@ -146,6 +159,8 @@ Attachments work like emails
     attach=/ABS/FILE/PATH
         -- or --
     attach=(~/file1 ~/file2)
+
+    attach=~/download.txt
 
 #### HTML File
 
