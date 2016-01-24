@@ -1,4 +1,9 @@
 # Email
+
+# BEFORE YOU RUN THIS MODIFY
+    /conf/default-mail.conf
+    /conf/install.conf
+
 # Install Options
     1)  install-package
 
@@ -33,7 +38,7 @@
 
     clone repo
 
-    bash init/setupMailServer.sh
+    bash init/install.sh
 
 try it out:
 
