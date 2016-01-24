@@ -1,8 +1,10 @@
 # Email
 
 # BEFORE YOU RUN THIS MODIFY
-    /conf/default-mail.conf
-    /conf/install.conf
+
+`/conf/default-mail.conf`
+
+`/conf/install.conf`
 
 # Currently this only supports gmail
 
@@ -44,7 +46,7 @@ select option 1, 2, or 3 from above.
 
 Then, try it out:
 
-    wget https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png -O mint.png && email -a mint.png -t YOUR_EMAIL
+`wget https://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png -O mint.png && email -a mint.png -t YOUR_EMAIL`
 
 **if you can't send email check your google account you may have to allow access**
 
