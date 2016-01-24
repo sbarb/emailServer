@@ -38,9 +38,7 @@
 
 # Setup & Install
 
-    clone repo
-
-    bash init/install.sh
+`bash Email/init/install.sh`
 
 select option 1, 2, or 3 from above.
 
