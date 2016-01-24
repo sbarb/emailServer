@@ -1,28 +1,26 @@
 # Email
+# Install Options
+    1)  install-package
 
-# There are two branches
-##### Choose what is best for you
-##### *master branch is currently up to date with install-package*
+            installs email as if it were a normal linux package
 
-    install-package
+            modifies
+                /usr/share/
+                    -- for the app data
+                        symlinked to ~/.email
+                /usr/bin/   
+                    -- for the run script
+                        which email
+                        returns /user/bin/email
 
-        installs email as if it were a normal linux package
+    2)  bin-package
 
-        modifies
-            /usr/share/ -- for the app data
-                            symlinked to ~/.email
-            /usr/bin/   -- for the run script
-                            which email
-                                returns /user/bin/email
+            all files are modified and saved in ~/.Email
 
-    bin-package
-
-        all files are modified and saved in ~/.Email
-
-        if you run
-            email
-        it will be an alias to the script
-        * you must source ~/.bashrc
+            if you run
+                email
+            it will be an alias to the script
+            * you must source ~/.bashrc
 
 
 # Currently this only supports gmail
@@ -48,17 +46,17 @@ Along with a new alias email
 
 to run it either
 
-        email -h
+    email -h
 
-        email -t email1@gmail.com -m "this \nis \nthe \nmessage" -a file1 -a file2
+    email -t email1@gmail.com -m "this \nis \nthe \nmessage" -a file1 -a file2
 
-        -- to send a text --
+    -- to send a text --
 
-        email -n 5558882222 -c att -m "this \nis \nthe \nmessage"
+    email -n 5558882222 -c att -m "this \nis \nthe \nmessage"
 
-        -- to use a config file --
+    -- to use a config file --
 
-        email -C ~/.email/templates/emailTemplate
+    email -C ~/.email/templates/emailTemplate
 
 # CLI Options:
 
@@ -94,9 +92,9 @@ to run it either
     -help   Displays help page
 
 
-    Default configs are stored in ./mail.conf
+    Default configs are stored in /conf/defult-mail.conf
 
-    If passing in a config file it will override the default mail.conf
+    If passing in a config file it will override the /conf/defult-mail.conf
 
 
 ## Config file options:
