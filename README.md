@@ -1,4 +1,4 @@
-# Email - Mutt-Wraper
+# Email - Mutt Wraper
 
 # BEFORE YOU RUN THIS MODIFY
 
