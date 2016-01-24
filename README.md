@@ -105,9 +105,10 @@ After setup is complete, if you chose to install, you should have a new folder ~
     -help   Displays help page
 
 
-    Default configs are stored in /conf/defult-mail.conf
+    If passing in a config file it will override the default
+    Default configs are stored in
+    /conf/default-mail.conf
 
-    If passing in a config file it will override the /conf/defult-mail.conf
 
 
 ## Config file options:
