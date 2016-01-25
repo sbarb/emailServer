@@ -30,7 +30,7 @@ modify `/Email/conf/default-mail.conf`
 
 **To open a port on host machine**
 
-`docker run -it --net=host demail`
+`docker run -it --net host demail`
 
 # Docker
 
