@@ -206,6 +206,8 @@ runInstall() {
 
     if [[ $DOCKER == "true" ]]; then
         echo "node ~/.email/node/app.js" > /usr/local/bin/start.sh
+
+        ln -s $APP_DIR/node /app
     fi
 }
 

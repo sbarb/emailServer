@@ -1,0 +1,5 @@
+FROM ubuntu
+
+ENTRYPOINT ["demail"]
+
+CMD ["node", "~/.email/node/app.js"]
