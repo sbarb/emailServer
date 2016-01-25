@@ -184,15 +184,19 @@ runInstall() {
 
     mkdir $HOME_LINK
 
-    sudo ln -s $APP_DIR/conf $HOME_LINK/config
-
-    sudo ln -s $APP_DIR/templates $HOME_LINK/templates
-
     sudo chown -R $USER:$USER $HOME_LINK
+
+    sudo ln -s $APP_DIR/conf $HOME_LINK/config
 
     sudo chown -R $USER:$USER $HOME_LINK/config
 
+    sudo ln -s $APP_DIR/templates $HOME_LINK/templates
+
     sudo chown -R $USER:$USER $HOME_LINK/templates
+
+    sudo ln -s $APP_DIR/node $HOME_LINK/node
+
+    sudo chown -R $USER:$USER $HOME_LINK/node
 }
 
 main() {

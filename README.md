@@ -16,9 +16,9 @@
 
 `docker pull -a sbarber/demail`
 
-`docker run -it -v /PATH/TO/REPO:/DEST_PATH sbarber/demail bash`
+`docker run -it sbarber/demail bash`
 
-`node /DEST_PATH/node/app.js`
+`node ~/.email/node/app.js`
 
 # Docker
 
