@@ -28,13 +28,4 @@ echo -e "\n\n\n"
 read -n1 -p "Start Node server now?: " START_SERVER
 echo -e "\n"
 
-case $START_SERVER in
-    y|Y)
-        node app.js
-        ;;
-    n|N)
-        exit 1
-        ;;
-esac
-
-exit 1
+node app.js

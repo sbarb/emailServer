@@ -71,4 +71,6 @@ app.listen(4000, function () {
     }
 
     console.log('Now you have an endpoint to to send an email!');
+
+    console.log("Press Ctrl+C to exit");
 });
