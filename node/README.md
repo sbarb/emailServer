@@ -53,3 +53,4 @@ the available commands are
     attach      -- single or array
     args        -- single or array
     html_file
+    config      -- single config file abs location

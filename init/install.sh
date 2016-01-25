@@ -205,7 +205,7 @@ runInstall() {
     sudo chown -R $USER:$USER $HOME_LINK/node
 
     if [[ $DOCKER == "true" ]]; then
-        echo "node ~/.email/node/app.js" > /usr/local/bin/start.sh
+        echo "node ~/.email/node/app.js" >> ~/.bashrc
 
         ln -s $APP_DIR/node /app
     fi

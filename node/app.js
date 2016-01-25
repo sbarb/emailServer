@@ -18,6 +18,11 @@ function run_cmd(cmd, args, callBack ) {
 app.post('/', function (req, res) {
     var argArray = [];
 
+    if (req.body.conf) {
+        argArray.push("-C");
+        argArray.push(req.body.conf);
+    }
+
     if (req.body.to) {
         for (var arg in req.body.args){
             argArray.push("-t");
@@ -70,7 +75,9 @@ app.listen(4000, function () {
         console.log('Email app running on', networkInterfaces[con][0]["address"]+':4000');
     }
 
-    console.log('Now you have an endpoint to to send an email!');
+    console.log('Now you have an endpoint to to send an email to');
+
+    console.log("Default config file is located at ~/.email/config");
 
     console.log("Press Ctrl+C to exit");
 });
