@@ -65,16 +65,10 @@ app.post('/', function (req, res) {
 app.listen(4000, function () {
     var os = require( 'os' );
     var networkInterfaces = os.networkInterfaces( );
-    var address = [];
 
     for (var con in networkInterfaces) {
-        console.log(networkInterfaces[con][0]["address"]);
-        address.push(networkInterfaces[con][0]["address"]);
-    }
-
-    for (ip in address) {
-
         console.log('Email app running on', networkInterfaces[con][0]["address"]+':4000');
     }
+
     console.log('Now you have an endpoint to to send an email!');
 });
