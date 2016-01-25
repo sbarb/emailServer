@@ -12,6 +12,14 @@
 
 # Currently this only supports gmail
 
+# Docker pull
+
+`docker pull -a sbarber/demail`
+
+`docker run -it -v /PATH/TO/REPO:/DEST_PATH sbarber/demail bash`
+
+`node /DEST_PATH/node/app.js`
+
 # Docker
 
 `docker run -it -v /PATH/TO/REPO:/DEST_PATH ubuntu bash`
