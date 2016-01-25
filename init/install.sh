@@ -39,6 +39,7 @@ setROOT() {
         ROOT_DIR=${0%/$(basename $BASH_SOURCE)}
     fi
 
+
     ROOT_DIR=$(readlink -f $ROOT_DIR)
     ROOT_DIR=${ROOT_DIR%"/init"}
 }
