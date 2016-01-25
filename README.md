@@ -59,6 +59,17 @@ Then, try it out:
 **if you don't want to allow access create a free gmail account to send email from**
 
 
+# http endpoint
+
+Run install process and select option 1
+
+then
+
+`bash Email/init/node.sh`
+
+
+
+
 # Run
 
 After setup is complete, if you chose to install, you should have a new folder ~/.email

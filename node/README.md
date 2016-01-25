@@ -4,6 +4,11 @@ provides a curl endpoint to hit to send emails
 
 # to install
 
+#### Automated
+
+bash Email/init/node.sh
+
+#### Manual
 install curl
 
 `sudo apt-get install -y curl`

@@ -29,7 +29,7 @@ setDefaults() {
 }
 
 setROOT() {
-    if [[ ${0%/$(basename $BASH_SOURCE)} == *"setupMailServer"* ]]; then
+    if [[ ${0%/$(basename $BASH_SOURCE)} == *"install"* ]]; then
         ROOT_DIR=$PWD
     else
         ROOT_DIR=${0%/$(basename $BASH_SOURCE)}
