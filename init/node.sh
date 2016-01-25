@@ -1,4 +1,4 @@
-setNODE_DIR() {
+startNode() {
 
     if [[ ${0%/$(basename $BASH_SOURCE)} == *"/init"* ]]; then
         ROOT_DIR=${0%/$(basename $BASH_SOURCE)}
@@ -10,19 +10,22 @@ setNODE_DIR() {
     ROOT_DIR=${ROOT_DIR%"/init"}
 
     NODE_DIR=$ROOT_DIR/node
+
+    cd $NODE_DIR
+
+    npm install
+
+    node app.js
 }
 
-setNODE_DIR
+installNode() {
+    # install curl
+    sudo apt-get install -y curl
+    # install nodejs
+    curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+}
 
-cd $NODE_DIR
+installNode
 
-# install curl
-sudo apt-get install -y curl
-# install nodejs
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-
-npm install
-
-node app.js
+startNode
