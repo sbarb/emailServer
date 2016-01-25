@@ -4,6 +4,12 @@ provides a curl endpoint to hit to send emails
 
 # to install
 
+#### Docker
+
+`docker pull -a sbarber/dmail`
+
+`docker run -it sbarber/dmail`
+
 #### Automated
 
 With initial install choose option 2
