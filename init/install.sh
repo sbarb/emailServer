@@ -209,7 +209,21 @@ runInstall() {
 
         echo "sleep 3 && node ~/.email/node/app.js" >> ~/.bashrc
 
-        ln -s $APP_DIR/node /app
+        mkdir /Email
+
+        sudo chown -R $USER:$USER /Email
+
+        sudo ln -s $APP_DIR/conf /Email/config
+
+        sudo chown -R $USER:$USER /Email/config
+
+        sudo ln -s $APP_DIR/templates /Email/templates
+
+        sudo chown -R $USER:$USER /Email/templates
+
+        sudo ln -s $APP_DIR/node /Email/node
+
+        sudo chown -R $USER:$USER /Email/node
     fi
 }
 

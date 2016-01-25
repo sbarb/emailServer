@@ -14,11 +14,13 @@
 
 # Docker pull
 
-modify `~/.email/conf/default-mail.conf
+modify `/Email/conf/default-mail.conf`
 
-`docker pull -a sbarber/demail && docker run -it sbarber/demail bash`
+`docker pull -a sbarber/demail`
 
-**on first iteration Ctrl+C then modify the config file located in ~/.email/conf/default-mail.conf**
+`docker run -it sbarber/demail`
+
+**on first iteration Ctrl+C then modify the config file located in `/Email/conf/default-mail.conf`**
 
 `docker ps -l` -> get id
 
@@ -30,7 +32,7 @@ modify `~/.email/conf/default-mail.conf
 
 `Ctrl+C`
 
-`node app/app.js`
+`node Email/node/app.js`
 
 # Docker
 
