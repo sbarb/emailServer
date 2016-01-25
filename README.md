@@ -6,6 +6,10 @@
 
 `/conf/install.conf`
 
+**NEW FEATURE!!!**
+
+**Now there is a node package that will throw up a simple server and give you an endpoint to hit**
+
 # Currently this only supports gmail
 
 # Install Options

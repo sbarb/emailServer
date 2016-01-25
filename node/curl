@@ -1,5 +1,5 @@
 curl -POST 172.17.0.2:4000 -H "Content-Type: application/json" -d '{
 "subj":"from curl",
 "msg":"this is a \ntest will \nit \nwork?",
-"args": ["-T"]
+"to":"steven.barber@eagles.usm.edu"
 }'

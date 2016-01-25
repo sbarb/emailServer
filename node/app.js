@@ -19,8 +19,10 @@ app.post('/', function (req, res) {
     var argArray = [];
 
     if (req.body.to) {
-        argArray.push("-t");
-        argArray.push(req.body.to);
+        for (var arg in req.body.args){
+            argArray.push("-t");
+            argArray.push(req.body.to);
+        }
     }
 
     if (req.body.subj) {
@@ -31,6 +33,18 @@ app.post('/', function (req, res) {
     if (req.body.msg) {
         argArray.push("-m");
         argArray.push(req.body.msg);
+    }
+
+    if (req.body.attach) {
+        for (var arg in req.body.args){
+            argArray.push("-a");
+            argArray.push(req.body.attach);
+        }
+    }
+
+    if (req.body.html_file) {
+        argArray.push("-H");
+        argArray.push(req.body.html_file);
     }
 
     if (req.body.args) {

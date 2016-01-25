@@ -36,7 +36,9 @@ all args are the same as `email -h`
 
 the available commands are
 
-    to
+    to          -- single or array
     subj
     msg
-    args
+    attach      -- single or array
+    args        -- single or array
+    html_file
