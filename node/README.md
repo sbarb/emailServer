@@ -2,7 +2,7 @@
 
 provides a curl endpoint to hit to send emails
 
-to install
+# to install
 
 install curl
 
@@ -17,3 +17,26 @@ install Node
 install node packages
 
 `npm install`
+
+# Run
+
+`cd node`
+
+`node app.js`
+
+# How it works
+
+    curl -POST IP_ADDRESS:4000 -H "Content-Type: application/json" -d '{
+    "subj":"from curl",
+    "msg":"this is a \ntest will \nit \nwork?",
+    "args": ["-T"]
+    }'
+
+all args are the same as `email -h`
+
+the available commands are
+
+    to
+    subj
+    msg
+    args
