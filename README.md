@@ -28,11 +28,9 @@ modify `/Email/conf/default-mail.conf`
 
 `docker run -it demail`
 
-**if you do not show an external ip:port open  run**
+**To open a port on host machine**
 
-`Ctrl+C`
-
-`node Email/node/app.js`
+`docker run -it --net=host demail`
 
 # Docker
 
