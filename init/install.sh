@@ -29,7 +29,7 @@ setDefaults() {
 
     START_SERVER=""
 
-    NODE_INSTALL_SCRIPT=$ROOT_DIR/init/t # node.sh
+    NODE_INSTALL_SCRIPT=$ROOT_DIR/init/node.sh
 }
 
 setROOT() {
