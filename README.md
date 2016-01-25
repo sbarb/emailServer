@@ -14,9 +14,7 @@
 
 # Docker pull
 
-`docker pull -a sbarber/demail`
-
-`docker run -it sbarber/demail bash`
+`docker pull -a sbarber/demail && docker run -it sbarber/demail bash`
 
 `node ~/.email/node/app.js`
 
