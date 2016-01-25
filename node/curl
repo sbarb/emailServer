@@ -1,5 +1,5 @@
-curl -POST 192.168.1.117:4000 -H "Content-Type: application/json" -d '{
+curl -POST 192.168.1.175:4000 -H "Content-Type: application/json" -d '{
 "subj":"from docker",
 "msg":"docker img working?",
-"args": ["-E"]
+"args": ["-T"]
 }'

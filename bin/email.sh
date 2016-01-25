@@ -87,6 +87,14 @@ cat <<EOF
         Options:
             am | AM | a | A | att | AT&T - AT&T MMS
             at | AT - AT&T TXT
+            verizon | v | V - Verizon
+            tmob | TM | tm - T-Mobile
+            sprint | s | S - Sprint PCS
+            virgin | virg | VIRG - Virgin Mobile
+            uscc | USCC | us - US Cellular
+            next | nextel | Next - Nextel
+            boost | Boost | b | B - Boost
+            alltel | all | All | AllTel - Alltel
     -s  Subject line
     -m  Message
     -H  HTML file to send as message
@@ -175,6 +183,56 @@ while getopts ":TEBWAt:s:m:H:a:C:n:c:h" opt; do
         || [ $OPTARG == "TA" ]; then
             # AT&T text email
             carrier=txt.att.net
+        fi
+
+        if [ $OPTARG == "verizon" ] \
+        || [ $OPTARG == "v" ] \
+        || [ $OPTARG == "V" ]; then
+            carrier=vtext.com
+        fi
+
+        if [ $OPTARG == "tmob" ] \
+        || [ $OPTARG == "TM" ] \
+        || [ $OPTARG == "tm" ]; then
+            carrier=tmomail.net
+        fi
+
+        if [ $OPTARG == "sprint" ] \
+        || [ $OPTARG == "s" ] \
+        || [ $OPTARG == "S" ]; then
+            carrier=messaging.sprintpcs.com
+        fi
+
+        if [ $OPTARG == "virgin" ] \
+        || [ $OPTARG == "virg" ] \
+        || [ $OPTARG == "VIRG" ]; then
+            carrier=vmobl.com
+        fi
+
+        if [ $OPTARG == "uscc" ] \
+        || [ $OPTARG == "USCC" ] \
+        || [ $OPTARG == "us" ]; then
+            carrier=email.uscc.net
+        fi
+
+        if [ $OPTARG == "next" ] \
+        || [ $OPTARG == "nextel" ] \
+        || [ $OPTARG == "Next" ]; then
+            carrier=messaging.nextel.com
+        fi
+
+        if [ $OPTARG == "boost" ] \
+        || [ $OPTARG == "Boost" ] \
+        || [ $OPTARG == "b" ] \
+        || [ $OPTARG == "B" ]; then
+            carrier=myboostmobile.com
+        fi
+
+        if [ $OPTARG == "alltel" ] \
+        || [ $OPTARG == "all" ] \
+        || [ $OPTARG == "All" ] \
+        || [ $OPTARG == "AllTel" ]; then
+            carrier=message.alltel.com
         fi
         ;;
     h | help)

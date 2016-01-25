@@ -209,6 +209,7 @@ runInstall() {
 
     if [[ $DOCKER == "true" ]]; then
         sudo apt-get install -y nano
+        echo "include /usr/share/nano/*.nanorc" >> ~/.nanorc
 
         cat $ROOT_DIR/conf/BASHRC_APPEND_FILE >> ~/.bashrc
 
