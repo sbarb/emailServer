@@ -45,6 +45,8 @@ setROOT() {
 }
 
 defineSetup() {
+    if [[ $DOCKER == "false" ]]; then
+        echo $DOCKER
 cat <<choices
 
     1)  Install package onto host machine
@@ -61,8 +63,12 @@ cat <<choices
     4)  Exit
 
 choices
-    read -n1 -p "Enter Selection: " SETUP_TYPE
-    echo -e "\n"
+
+        read -n1 -p "Enter Selection: " SETUP_TYPE
+        echo -e "\n"
+    else
+        SETUP_TYPE=2
+    fi
 
     case $SETUP_TYPE in
         1)
@@ -197,6 +203,10 @@ runInstall() {
     sudo ln -s $APP_DIR/node $HOME_LINK/node
 
     sudo chown -R $USER:$USER $HOME_LINK/node
+
+    if [[ $DOCKER == "true" ]]; then
+        echo "node ~/.email/node/app.js" > /usr/local/bin/start.sh
+    fi
 }
 
 main() {
@@ -214,5 +224,18 @@ main() {
 
     exit 1
 }
+
+DOCKER=false
+while getopts ":D" opt; do
+  case $opt in
+    D)
+        DOCKER=true
+        echo "Will be a Docker install" >&2
+        ;;
+    \?)
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+done
 
 main
