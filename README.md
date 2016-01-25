@@ -14,9 +14,23 @@
 
 # Docker pull
 
+modify `~/.email/conf/default-mail.conf
+
 `docker pull -a sbarber/demail && docker run -it sbarber/demail bash`
 
-`node ~/.email/node/app.js`
+**on first iteration Ctrl+C then modify the config file located in ~/.email/conf/default-mail.conf**
+
+`docker ps -l` -> get id
+
+`docker commit UID demail`
+
+`docker run -it demail`
+
+**if you do not show an external ip:port open  run**
+
+`Ctrl+C`
+
+`node app/app.js`
 
 # Docker
 

@@ -205,6 +205,8 @@ runInstall() {
     sudo chown -R $USER:$USER $HOME_LINK/node
 
     if [[ $DOCKER == "true" ]]; then
+        sudo apt-get install -y nano
+        
         echo "node ~/.email/node/app.js" >> ~/.bashrc
 
         ln -s $APP_DIR/node /app
