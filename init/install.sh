@@ -65,11 +65,7 @@ choices
     echo -e "\n"
 
     case $SETUP_TYPE in
-        1)
-            runInstall
-            ;;\
-        2)
-            START_SERVER=Y
+        1|2)
             runInstall
             ;;
         3)
@@ -196,18 +192,18 @@ runInstall() {
 }
 
 main() {
-    # setDefaults
-    #
-    # defineSetup
-    #
-    # installDependencies
-    #
-    # configureMailServer
+    setDefaults
 
-    # if [[ $START_SERVER != "" ]]; then
-        # . $NODE_INSTALL_SCRIPT
-    # fi
-    . /data/init/node.sh
+    defineSetup
+
+    installDependencies
+
+    configureMailServer
+
+    if [[ $START_SERVER != "" ]]; then
+        . $NODE_INSTALL_SCRIPT
+    fi
+
     exit 1
 }
 
