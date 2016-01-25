@@ -134,7 +134,7 @@ sudoAppend()
 }
 
 isCorrectEmail() {
-    read -n1 -p "Is $EMAIL_ADDRESS correct?" correct
+    read -n1 -p "Is $EMAIL_ADDRESS correct?" CORRECT_EMAIL
     echo -e "\n" $CORRECT_EMAIL
     case $CORRECT_EMAIL in
         y|Y)
@@ -172,9 +172,12 @@ configureMailServer() {
         getEmail
     fi
 
-    APPEND_STRING="FromLineOverride=YES\nAuthUser=$EMAIL_ADDRESS\nAuthPass=$EMAIL_PASS\nmailhub=smtp.gmail.com:587\nUseSTARTTLS=YES"
+    sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak
 
-    sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
+    if [[ $DOCKER == "false" ]]; then
+        APPEND_STRING="FromLineOverride=YES\nAuthUser=$EMAIL_ADDRESS\nAuthPass=$EMAIL_PASS\nmailhub=smtp.gmail.com:587\nUseSTARTTLS=YES"
+        sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
+    fi
 }
 
 useBinaries() {
@@ -207,7 +210,7 @@ runInstall() {
     if [[ $DOCKER == "true" ]]; then
         sudo apt-get install -y nano
 
-        echo "sleep 3 && node ~/.email/node/app.js" >> ~/.bashrc
+        cat $ROOT_DIR/conf/BASHRC_APPEND_FILE >> ~/.bashrc
 
         mkdir /Email
 

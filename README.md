@@ -14,19 +14,9 @@
 
 # Docker pull
 
-modify `/Email/conf/default-mail.conf`
+`docker pull -a sbarber/dmail`
 
-`docker pull -a sbarber/demail`
-
-`docker run -it sbarber/demail`
-
-**on first iteration Ctrl+C then modify the config file located in `/Email/conf/default-mail.conf`**
-
-`docker ps -l` -> get id
-
-`docker commit UID demail`
-
-`docker run -it demail`
+`docker run -it sbarber/dmail`
 
 **To open a port on host machine**
 
@@ -84,7 +74,7 @@ look at node README for curl information
 
 `bash Email/init/install.sh`
 
-select option 1, 2, or 3 from above.
+select option 1, 2, 3, or 4 from above.
 
 Then, try it out:
 
@@ -104,9 +94,6 @@ Run install process and select option 2
 After the install process
 
 `bash Email/init/node.sh`
-
-
-
 
 # Run
 

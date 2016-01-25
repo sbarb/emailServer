@@ -1,0 +1,75 @@
+FromLineOverride=YES
+AuthUser=steven
+AuthPass=password
+mailhub=smtp.gmail.com:587
+UseSTARTTLS=YES
+sudoAppend()
+{
+    ORIGINAL=$1
+    TMP=$ORIGINAL.tmp
+    if [ $3 ]; then
+        CHMOD_VAR=$3
+    else
+        CHMOD_VAR=644
+    fi
+
+    echo chmod: $CHMOD_VAR
+
+    echo original: $ORIGINAL
+
+    sudo cp $ORIGINAL $TMP
+
+    sudo chmod 777 $TMP
+
+    sudo echo -e $2 >> $TMP
+
+    echo -e "\nCopying $ORIGINAL to $ORIGINAL.bak\n"
+
+    sudo cp $ORIGINAL $ORIGINAL.bak
+
+    echo -e "\nAdding email conf to $ORIGINAL\n"
+
+    sudo cp $TMP $ORIGINAL
+
+    sudo chmod 644 $ORIGINAL
+}
+
+isCorrectEmail() {
+    read -n1 -p "Is $EMAIL_ADDRESS correct?" CORRECT_EMAIL
+    echo -e "\n" $CORRECT_EMAIL
+    case $CORRECT_EMAIL in
+        y|Y)
+            getPassword
+            ;;
+        n|N)
+            echo "Try Again."
+            getEmail
+            ;;
+        *)
+            echo "Unknown Answer"
+            isCorrectEmail
+            ;;
+    esac
+}
+
+getEmail() {
+    read -p "What's your gmail account? " EMAIL_ADDRESS
+    isCorrectEmail
+}
+
+getPassword() {
+    read -s -p "Enter Password: " EMAIL_PASS
+    echo -e "\nIf you need to change this modify\n-- /etc/ssmtp.conf"
+}
+
+getEmail
+
+APPEND_STRING="FromLineOverride=YES\nAuthUser=$EMAIL_ADDRESS\nAuthPass=$EMAIL_PASS\nmailhub=smtp.gmail.com:587\nUseSTARTTLS=YES"
+
+# sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
+
+# while cmp /Email/config/default-mail.conf /Email/config/default-mail.conf.original >/dev/null 2>&1; do
+#     echo -e "\n\nModify the default config file..."
+#     sleep 1
+#     nano /Email/config/default-mail.conf
+# done

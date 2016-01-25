@@ -50,7 +50,4 @@ the available commands are
     to          -- single or array
     subj
     msg
-    attach      -- single or array
     args        -- single or array
-    html_file
-    config      -- single config file abs location
