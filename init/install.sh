@@ -206,8 +206,8 @@ runInstall() {
 
     if [[ $DOCKER == "true" ]]; then
         sudo apt-get install -y nano
-        
-        echo "node ~/.email/node/app.js" >> ~/.bashrc
+
+        echo "sleep 3 && node ~/.email/node/app.js" >> ~/.bashrc
 
         ln -s $APP_DIR/node /app
     fi
