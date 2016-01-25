@@ -24,8 +24,4 @@ sudo apt-get install -y nodejs
 
 npm install
 
-echo -e "\n\n\n"
-read -n1 -p "Start Node server now?: " START_SERVER
-echo -e "\n"
-
 node app.js

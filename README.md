@@ -26,7 +26,13 @@
                         which email
                         returns /user/bin/email
 
-    2)  bin-package
+    2)  install-package
+
+        Same as option 1
+        but installs node server and runs it
+
+
+    3)  bin-package
 
             all files are modified and saved in ~/.Email
 
@@ -35,7 +41,7 @@
             it will be an alias to the script
             * you must source ~/.bashrc
 
-    3)  bin-package
+    4)  bin-package
 
             Same as option 2
             but without the ailias in ~/.bashrc
@@ -61,9 +67,11 @@ Then, try it out:
 
 # http endpoint
 
-Run install process and select option 1
+Run install process and select option 2
 
-then
+-- or --
+
+After the install process
 
 `bash Email/init/node.sh`
 

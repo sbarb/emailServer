@@ -6,7 +6,13 @@ provides a curl endpoint to hit to send emails
 
 #### Automated
 
-bash Email/init/node.sh
+With initial install choose option 2
+
+-- or --
+
+If install has already run
+
+`bash Email/init/node.sh`
 
 #### Manual
 install curl

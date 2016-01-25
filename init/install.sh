@@ -26,6 +26,10 @@ setDefaults() {
     EMAIL_SCRIPT=$ROOT_DIR/bin/email.sh
 
     APP_DIR=/usr/share/Email
+
+    START_SERVER=""
+
+    NODE_INSTALL_SCRIPT=$ROOT_DIR/init/t # node.sh
 }
 
 setROOT() {
@@ -62,14 +66,18 @@ choices
     case $SETUP_TYPE in
         1)
             runInstall
-            ;;
+            ;;\
         2)
-            useBinaries
+            START_SERVER=Y
+            runInstall
             ;;
         3)
-            return 1
+            useBinaries
             ;;
         4)
+            return 1
+            ;;
+        5)
             echo -e "\n\nGood-Bye.\n\n"
             ;;
         *)
@@ -194,6 +202,10 @@ main() {
     installDependencies
 
     configureMailServer
+
+    if [[ $START_SERVER != "" ]]; then
+        . $NODE_INSTALL_SCRIPT
+    fi
 
     exit 1
 }
