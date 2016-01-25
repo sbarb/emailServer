@@ -1,12 +1,13 @@
 setNODE_DIR() {
-    echo ${0%/$(basename $BASH_SOURCE)}
-    if [[ ${0%/$(basename $BASH_SOURCE)} == *"/init/"* ]]; then
+
+    if [[ ${0%/$(basename $BASH_SOURCE)} == *"/init"* ]]; then
         ROOT_DIR=${0%/$(basename $BASH_SOURCE)}
     else
         ROOT_DIR=$PWD
     fi
+
     ROOT_DIR=$(readlink -f $ROOT_DIR)
-    ROOT_DIR=${ROOT_DIR%"/init/"*}
+    ROOT_DIR=${ROOT_DIR%"/init"}
 
     NODE_DIR=$ROOT_DIR/node
 }
