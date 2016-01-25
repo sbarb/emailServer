@@ -65,7 +65,11 @@ choices
     echo -e "\n"
 
     case $SETUP_TYPE in
-        1|2)
+        1)
+            runInstall
+            ;;\
+        2)
+            START_SERVER=Y
             runInstall
             ;;
         3)
