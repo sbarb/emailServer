@@ -196,18 +196,18 @@ runInstall() {
 }
 
 main() {
-    setDefaults
+    # setDefaults
+    #
+    # defineSetup
+    #
+    # installDependencies
+    #
+    # configureMailServer
 
-    defineSetup
-
-    installDependencies
-
-    configureMailServer
-
-    if [[ $START_SERVER != "" ]]; then
-        . $NODE_INSTALL_SCRIPT
-    fi
-
+    # if [[ $START_SERVER != "" ]]; then
+        # . $NODE_INSTALL_SCRIPT
+    # fi
+    . /data/init/node.sh
     exit 1
 }
 
