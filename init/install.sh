@@ -75,6 +75,8 @@ choices
             runInstall
             ;;\
         2)
+            cp $ROOT_DIR/conf/default-mail.conf.blank $ROOT_DIR/conf/default-mail.conf
+            # cp $ROOT_DIR/conf/default-mail.conf.blank $ROOT_DIR/conf/default-mail.conf.original
             START_SERVER=Y
             runInstall
             ;;
@@ -174,7 +176,7 @@ configureMailServer() {
 
     sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak
 
-    if [[ $DOCKER == "false" ]]; then
+    if [[ $DOCKER == "false" ]] || [[ $PRECONF == "true" ]]; then
         APPEND_STRING="FromLineOverride=YES\nAuthUser=$EMAIL_ADDRESS\nAuthPass=$EMAIL_PASS\nmailhub=smtp.gmail.com:587\nUseSTARTTLS=YES"
         sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
     fi
@@ -209,7 +211,6 @@ runInstall() {
 
     if [[ $DOCKER == "true" ]]; then
         sudo apt-get install -y nano
-        echo "include /usr/share/nano/*.nanorc" >> ~/.nanorc
 
         cat $ROOT_DIR/conf/BASHRC_APPEND_FILE >> ~/.bashrc
 
@@ -248,11 +249,16 @@ main() {
 }
 
 DOCKER=false
-while getopts ":D" opt; do
+PRECONF=false
+while getopts ":DP" opt; do
   case $opt in
     D)
         DOCKER=true
         echo "Will be a Docker install" >&2
+        ;;
+    P)
+        PRECONF=true
+        echo "Will be a preconfigured install" >&2
         ;;
     \?)
         echo "Invalid option: -$OPTARG" >&2

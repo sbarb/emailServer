@@ -1,42 +1,51 @@
-# default email information
-personal_email=steven.barber@eagles.usm.edu
-work_email=steven@pharmedio.com
+setDefaults() {
+    # default email information
+    personal_email=steven.barber@eagles.usm.edu
+    work_email=steven@pharmedio.com
 
-# default phone information
+    default_number=6016208784
+    # Choices -> [$att, $att_txt, $verizon, $tmob, $sprint, $virgin, $uscell, $nextel, $boost, $alltel]
+    default_carrier=$att
 
-att=mms.att.net
-att_txt=txt.att.net
-verizon=vtext.com
-tmob=tmomail.net
-sprint=messaging.sprintpcs.com
-virgin=vmobl.com
-uscell=email.uscc.net
-nextel=messaging.nextel.com
-boost=myboostmobile.com
-alltel=message.alltel.com
+    # Default values to be set when none are selected
+    default_phone=$default_number@$default_carrier
 
-default_number=6016208784
-default_carrier=mms.att.net
+    # an array of default emails
+    default_emails=($personal_email)
 
-# Default values to be set when none are selected
-default_phone=$default_number@$default_carrier
-
-# an array of default emails
-default_emails=($personal_email)
-
-default_subject="email from $USER"
-# default this is a plain text Message but to use html
-default_msg=$(cat <<EOF
+    default_subject="email from $USER"
+    # default this is a plain text Message but to use html
+    default_msg=$(cat <<EOF
 Message not found
 Please remember to send a message next time with the
 -m option"
 EOF
 )
 
-# if no attachment is given it defaults to an empty string
-default_attach=""
+    # if no attachment is given it defaults to an empty string
+    default_attach=""
 
-# the message is default a plain text msg rather than html
-# either set $html_file to a html file or pass a html msg
-# and set $html_file to true
-html_file=false
+    # the message is default a plain text msg rather than html
+    # either set $html_file to a html file or pass a html msg
+    # and set $html_file to true
+    html_file=false
+
+}
+
+setCarriers() {
+    # default phone information variables
+    att=mms.att.net
+    att_txt=txt.att.net
+    verizon=vtext.com
+    tmob=tmomail.net
+    sprint=messaging.sprintpcs.com
+    virgin=vmobl.com
+    uscell=email.uscc.net
+    nextel=messaging.nextel.com
+    boost=myboostmobile.com
+    alltel=message.alltel.com
+}
+
+setCarriers
+
+setDefaults

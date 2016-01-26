@@ -27,6 +27,14 @@ installNode() {
     sudo apt-get install -y nodejs
 }
 
+setup() {
+    if [[ $DOCKER == "true" ]] && [[ $PRECONF = "false" ]]; then
+        . $ROOT_DIR/conf/BASHRC_APPEND_FILE
+    fi
+}
+
+setup
+
 installNode
 
 startNode

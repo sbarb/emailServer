@@ -64,7 +64,7 @@ while cmp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak >/dev/null 2>&1; do
     sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
 done
 
-while cmp /Email/config/default-mail.conf /Email/config/default-mail.conf.original >/dev/null 2>&1; do
+while cmp /Email/config/default-mail.conf /Email/config/default-mail.conf.blank >/dev/null 2>&1; do
     echo -e "\n\nModify the default config file..."
     sleep 1
     nano /Email/config/default-mail.conf
