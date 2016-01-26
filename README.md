@@ -1,6 +1,6 @@
 # Email - Mutt Wraper
 
-**Currently this only supports gmail**
+**Currently this only supports sending mail via gmail**
 
 *******************************************
 
