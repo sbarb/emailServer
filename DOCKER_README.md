@@ -6,7 +6,7 @@
 
 **To open a port on host machine**
 
-`docker run -it --net host demail`
+`docker run -it --net host sbarber/demail`
 
 # Docker
 
@@ -16,4 +16,4 @@
 
 select option 2
 
-look at node README for curl information
+look at /README and node/README for curl information

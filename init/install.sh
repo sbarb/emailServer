@@ -164,7 +164,7 @@ getPassword() {
 }
 
 configureMailServer() {
-    if [ $EMAIL_CONFIG_FILE ]; then
+    if [ $EMAIL_CONFIG_FILE ] && [[ $PRECONF == "true" ]]; then
         . $EMAIL_CONFIG_FILE
     fi
 
@@ -176,7 +176,7 @@ configureMailServer() {
 
     sudo cp /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.bak
 
-    if [[ $DOCKER == "false" ]] || [[ $PRECONF == "true" ]]; then
+    if [[ $DOCKER == "false" ]]; then
         APPEND_STRING="FromLineOverride=YES\nAuthUser=$EMAIL_ADDRESS\nAuthPass=$EMAIL_PASS\nmailhub=smtp.gmail.com:587\nUseSTARTTLS=YES"
         sudoAppend /etc/ssmtp/ssmtp.conf $APPEND_STRING
     fi
@@ -260,7 +260,7 @@ while getopts ":DP" opt; do
         PRECONF=true
         echo "Will be a preconfigured install" >&2
         ;;
-    \?)
+    *)
         echo "Invalid option: -$OPTARG" >&2
         ;;
     esac

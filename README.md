@@ -1,16 +1,24 @@
 # Email - Mutt Wraper
 
+**Currently this only supports gmail**
+
+*******************************************
+
 # BEFORE YOU RUN THIS MODIFY
 
 `/conf/default-mail.conf`
 
 `/conf/install.conf`
 
-**NEW FEATURE!!!**
+********************************************
 
-**Now there is a node package that will throw up a simple server and give you an endpoint to hit**
+# Docker
 
-# Currently this only supports gmail
+###### For Docker img read DOCKER_README
+
+###### Easiest way to get it up and running quickly (also portable accross multiple OS's)
+
+********************************************
 
 # Install Options
     1)  install-package
@@ -50,11 +58,15 @@
             it will be
                 bash Email/bin/email.sh
 
+********************************************
+
 # Setup & Install
 
 `bash Email/init/install.sh`
 
 select option 1, 2, 3, or 4 from above.
+
+Modify `Email/conf/default-mail.conf`
 
 Then, try it out:
 
@@ -63,17 +75,6 @@ Then, try it out:
 **if you can't send email check your google account you may have to allow access**
 
 **if you don't want to allow access create a free gmail account to send email from**
-
-
-# http endpoint
-
-Run install process and select option 2
-
--- or --
-
-After the install process
-
-`bash Email/init/node.sh`
 
 # Run
 
@@ -88,6 +89,24 @@ After setup is complete, if you chose to install, you should have a new folder ~
     -- to use a config file --
 
     email -C ~/.email/templates/emailTemplate
+
+********************************************
+
+# http endpoint
+
+Run install process and select option 2
+
+-- or --
+
+After the install process
+
+`bash Email/init/node.sh`
+
+then to run later
+
+`node Email/node/app.js`
+
+********************************************
 
 # CLI Options:
 
@@ -106,6 +125,14 @@ After setup is complete, if you chose to install, you should have a new folder ~
         Options:
             am | AM | a | A | att | AT&T - AT&T MMS
             at | AT - AT&T TXT
+            verizon | v | V - Verizon
+            tmob | TM | tm - T-Mobile
+            sprint | s | S - Sprint PCS
+            virgin | virg | VIRG - Virgin Mobile
+            uscc | USCC | us - US Cellular
+            next | nextel | Next - Nextel
+            boost | Boost | b | B - Boost
+            alltel | all | All | AllTel - Alltel
     -s  Subject line
     -m  Message
     -H  HTML file to send as message
@@ -129,12 +156,16 @@ After setup is complete, if you chose to install, you should have a new folder ~
     Default configs are stored in
     /conf/default-mail.conf
 
-
+********************************************
 
 ## Config file options:
 #### Address
 
 these options are availiable for single email or array of emails
+
+All major phone carriers are availiable for texting through email
+
+AT&T, Verizon, T-Mobile, Sprint, Virgin Mobile, US Cellular, Nextel, Boost, Alltel
 
     to
     email
@@ -151,6 +182,23 @@ these options are availiable for single email or array of emails
     carrier=mms.att.net
 
     phone=5554448888@mms.att.net
+
+    # if needed for config file
+    setCarriers() {
+        # default phone information variables
+        att=mms.att.net
+        att_txt=txt.att.net
+        verizon=vtext.com
+        tmob=tmomail.net
+        sprint=messaging.sprintpcs.com
+        virgin=vmobl.com
+        uscell=email.uscc.net
+        nextel=messaging.nextel.com
+        boost=myboostmobile.com
+        alltel=message.alltel.com
+    }
+
+    phone=$number@$att
 
 #### Subject  
 
