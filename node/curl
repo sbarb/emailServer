@@ -1,5 +1,5 @@
-curl -POST 192.168.1.175:4000 -H "Content-Type: application/json" -d '{
-"subj":"from docker",
-"msg":"docker img working?",
+curl -POST 172.17.0.2:4000 -H "Content-Type: application/json" -d '{
+"subj":"Drive Erased",
+"msg":"blank drive now",
 "args": ["-T"]
 }'
