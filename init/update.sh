@@ -17,3 +17,5 @@ cd $ROOT_DIR
 git pull
 
 sudo cp $ROOT_DIR/bin/email.sh /usr/bin/email
+
+sudo cp $ROOT_DIR/bin/email.sh ~/.email/bin/emial.sh
