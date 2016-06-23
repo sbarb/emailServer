@@ -6,7 +6,7 @@
 
 **To open a port on host machine**
 
-`docker run -it --net host sbarber/demail`
+`docker run -it --net host sbarber/dmail`
 
 # Docker
 
