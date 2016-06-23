@@ -8,7 +8,7 @@
 
 `docker run -it --net host sbarber/dmail`
 
-# Docker
+# Docker Fresh install
 
 `docker run -it -v /PATH/TO/REPO:/DEST_PATH ubuntu bash`
 
